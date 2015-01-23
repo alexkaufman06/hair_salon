@@ -1,0 +1,39 @@
+<h1><%= @stylist.name() %>'s list of clients:</h1>
+
+<% if @stylist.clients().any?() %>
+  <h3>Here are all of <%= @stylist.name() %>'s clients:</h3>
+  <ul>
+    <% @stylist.clients().each() do |client| %>
+      <li><%= client.name() %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p><%= @stylist.name() %> has no clients!</p>
+<% end %>
+
+
+<form action="/clients" method="post">
+  <input id="stylist_id" name="stylist_id" type="hidden" value="<%= @stylist.id() %>">
+
+  <label for="client_name">Add a client:</label>
+  <input id="client_name" name="client_name" type="text">
+  <br>
+  <button class="btn btn-success" type="submit">Add Client!</button>
+</form>
+
+<h3>Delete client:</h3>
+<form action="/clients" method="post">
+  <input id="stylist_id" name="stylist_id" type="hidden" value="<%= @stylist.id() %>">
+  <input name="_method" type="hidden" value="delete">
+  <div class="form-group">
+    <label class = "form-label" for="client_id">Choose client to delete:</label>
+    <select class = "form-control" id="client_id" name="client_id">
+      <% @stylist.clients().each() do |client| %>
+        <option value="<%= client.id() %>"><%= client.name() %></option>
+      <% end %>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-danger">Delete Client!</button>
+</form>
+<br>
+<a href="/">Back</a>

@@ -4,7 +4,7 @@
 <% if Stylist.all().any?() %>
   <ul>
   <% Stylist.all().each() do |stylist| %>
-    <li><a href="/stylists/<%= stylist.id() %>"><%= stylist.name() %></a></li>
+    <li><a href="/clients/<%= stylist.id() %>"><%= stylist.name() %></a></li>
   <% end %>
   </ul>
 <% else %>
