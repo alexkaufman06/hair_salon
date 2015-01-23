@@ -8,12 +8,22 @@ describe(Client) do
     end
   end
 
-  # describe('#==') do
-  #   it('returns as equal when client names and IDs match') do
-  #     client1 = Client.new({ :name => "Susie"})
-  #
-  #   end
-  # end
+  describe('#save') do
+    it('saves the client into the database') do
+      client = Client.new({ :name => "Bob" })
+      client.save()
+      expect(Client.all()).to(eq([client]))
+    end
+  end
+
+  describe('#==') do
+    it('returns as equal when client names and IDs match') do
+      client1 = Client.new({ :name => "Susie"})
+      client1.save()
+      client1_from_db = Client.all().first()
+      expect(client1).to(eq(client1_from_db))  
+    end
+  end
 
 
 end
