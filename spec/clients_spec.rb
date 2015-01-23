@@ -52,4 +52,18 @@ describe(Client) do
       expect(Client.all()).to(eq([client2]))
     end
   end
+
+  describe('#clients') do
+    it('returns an array of clients that belong to the stylist') do
+      stylist = Stylist.new({ :name => "Linda" })
+      stylist.save()
+      client1 = Client.new({ :name => "Joe" })
+      client1.save()
+      client2 = Client.new({ :name => "Bob" })
+      client2.save()
+      stylist.add_client(client1)
+      stylist.add_client(client2)
+      expect(stylist.clients()).to(eq([client1, client2]))
+    end
+  end
 end

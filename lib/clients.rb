@@ -4,7 +4,7 @@ class Client
   define_method(:initialize) do |attributes|
     @name = attributes.fetch(:name)
     @id = attributes[:id]
-    @stylist = attributes[:stylist_id]
+    @stylist_id = attributes[:stylist_id]
   end
 
   define_singleton_method(:all) do
