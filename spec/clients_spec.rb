@@ -42,4 +42,14 @@ describe(Client) do
     end
   end
 
+  describe('#delete') do
+    it('allows the user to delete a client from the database') do
+      client = Client.new({ :name => "Joe" })
+      client.save()
+      client2 = Client.new({ :name => "Bob" })
+      client2.save()
+      client.delete()
+      expect(Client.all()).to(eq([client2]))
+    end
+  end
 end
