@@ -1,6 +1,6 @@
 <h1><%= @stylist.name() %>'s list of clients:</h1>
 
-<% if @stylist.clients().any?() %>
+<% if @stylist.clients().any?() %> 
   <h3>Here are all of <%= @stylist.name() %>'s clients:</h3>
   <ul>
     <% @stylist.clients().each() do |client| %>

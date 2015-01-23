@@ -45,7 +45,7 @@ describe(Stylist) do
   describe('#delete') do
     it('allows the user to delete a stylist from the database') do
       stylist = Stylist.new({ :name => "Joe" })
-      stylist.save()
+      stylist.save() 
       stylist2 = Stylist.new({ :name => "Bob" })
       stylist2.save()
       stylist.delete()

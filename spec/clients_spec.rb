@@ -48,7 +48,7 @@ describe(Client) do
       client.save()
       client2 = Client.new({ :name => "Bob" })
       client2.save()
-      client.delete()
+      client.delete() 
       expect(Client.all()).to(eq([client2]))
     end
   end

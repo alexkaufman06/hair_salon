@@ -31,7 +31,7 @@ class Client
     Client.all().each do |client|
       if client.id() == search_id
         return client
-      end
+      end 
     end
   end
 

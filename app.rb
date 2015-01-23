@@ -41,7 +41,7 @@ end
 delete("/clients") do
   client_id = params.fetch('client_id').to_i()
   stylist_id = params.fetch('stylist_id').to_i()
-  Client.find(client_id).delete()
+  Client.find(client_id).delete() 
   @stylist = Stylist.find(stylist_id)
   erb(:stylist)
 end
