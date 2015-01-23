@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+body {
+  background-image: url(/images/bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #000;
+  background-color: #7A5230;
+}
+
+a {
+  color: #000;
+}
+
+a:hover {
+  color: #000; 
+}
