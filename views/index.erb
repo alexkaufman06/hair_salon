@@ -1,1 +1,35 @@
 <h1>Hair Salon</h1>
+
+<h3>Stylists:</h3>
+<% if Stylist.all().any?() %>
+  <ul>
+  <% Stylist.all().each() do |stylist| %>
+    <li><a href="/stylists/<%= stylist.id() %>"><%= stylist.name() %></a></li>
+  <% end %>
+  </ul>
+<% else %>
+  Your salon has no stylists!
+<% end %>
+
+<h3>Add a stylists:</h3>
+<form action="/stylists" method="POST">
+  <div class="form-group">
+    <label class="form-label" for="stylist_name">Enter stylist name:</label>
+    <input class="form-control" id="stylist_name" name="stylist_name" class="form-control" type="text" required>
+  </div>
+  <button type="submit" class="btn btn-success">Add Stylist</button>
+</form>
+
+<h3>Delete stylist:</h3>
+<form action="/stylists" method="POST">
+  <input name="_method" type="hidden" value="delete">
+  <div class="form-group">
+    <label class = "form-label" for="stylist_id">Choose stylist to delete:</label>
+    <select class = "form-control" id="stylist_id" name="stylist_id">
+      <% Stylist.all().each() do |stylist| %>
+        <option value="<%= stylist.id() %>"><%= stylist.name() %></option>
+      <% end %>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-danger">Delete Stylist!</button>
+</form>
