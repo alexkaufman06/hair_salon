@@ -21,9 +21,16 @@ describe(Client) do
       client1 = Client.new({ :name => "Susie"})
       client1.save()
       client1_from_db = Client.all().first()
-      expect(client1).to(eq(client1_from_db))  
+      expect(client1).to(eq(client1_from_db))
     end
   end
 
+  describe('.find') do
+    it("returns a client object given an id") do
+      client = Client.new({ :name => "Bob" })
+      client.save()
+      expect(Client.find(client.id())).to(eq(client))
+    end
+  end
 
 end

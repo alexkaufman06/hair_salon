@@ -26,4 +26,12 @@ class Client
     self.id() == another_client.id() && self.name() == another_client.name()
   end
 
+  define_singleton_method(:find) do |search_id|
+    Client.all().each do |client|
+      if client.id() == search_id
+        return client
+      end
+    end
+  end
+  
 end
